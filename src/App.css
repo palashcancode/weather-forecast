@@ -1,38 +1,175 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e0e7ff; /* Light, calming background */
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
 .App {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+}
+
+h1, h2 {
   text-align: center;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.city-search {
+    position: relative;
+    margin-bottom: 20px; /* Adjust as needed */
   }
-}
+  
+  .city-search input {
+    width: 80%; /* Smaller width */
+    padding: 8px; /* Reduced padding */
+    font-size: 14px; /* Smaller font size */
+    border: 1px solid #ccc;
+    border-radius: 25px; /* More rounded corners */
+    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+  }
+  
+  .city-search input:focus {
+    border-color: #4A90E2;
+    background: rgba(255, 255, 255, 1); /* Solid background on focus */
+  }
+  
+  .city-list {
+    position: absolute;
+    width: 80%; /* Match the input width */
+    background: rgba(255, 255, 255, 0.9); /* Transparent background */
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    max-height: 150px; /* Adjusted height */
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+    z-index: 1;
+  }
+  
+  .city-list li {
+    padding: 10px 12px; /* Reduced padding */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .city-list li:hover {
+    background-color: rgba(200, 200, 200, 0.5); /* Light hover effect */
+  }
+  
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
+  display: inline-block;
+  margin: 0 10px 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #4A90E2;
   color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #357ABD;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.weather-display {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.weather-icon {
+  font-size: 100px;
+  margin: 20px 0;
+  color: #F39C12; /* Bright yellow for icons */
+}
+
+.temperature {
+  font-size: 60px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #2C3E50; /* Dark text for contrast */
+}
+
+.description {
+  font-size: 24px;
+  margin: 10px 0;
+  text-transform: capitalize;
+  color: #7F8C8D; /* Softer text color */
+}
+
+.forecast-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.forecast-card {
+  width: 18%;
+  text-align: center;
+  background-color: #f7f9fc; /* Light background for cards */
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.forecast-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.forecast-card h3 {
+  margin-top: 0;
+  color: #34495E; /* Dark text */
+}
+
+.forecast-card .weather-icon {
+  font-size: 50px;
+  margin: 15px 0;
+  color: #F39C12; /* Bright yellow for icons */
+}
+
+.forecast-card .temperature {
+  font-size: 20px;
+  color: #2C3E50; /* Dark text for contrast */
+}
+
+.forecast-card .description {
+  font-size: 16px;
+  color: #7F8C8D; /* Softer text color */
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.error {
+  color: #E74C3C; /* Bright red for errors */
+}
+
+@media (max-width: 600px) {
+  .forecast-card {
+    width: 45%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .city-search input, button {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
