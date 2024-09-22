@@ -44,6 +44,7 @@ const App = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+
   }, [city]);
 
   const toggleUnit = () => {
